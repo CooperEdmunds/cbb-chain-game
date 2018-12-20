@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import API from "../api";
 import Graph from "react-graph-vis";
-// import Graph from "../../lib";
-
-// import Graph from 'react-graph-vis'
-
-import { render } from "react-dom";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -51,7 +46,8 @@ export default class HomePage extends Component {
         { from: 1, to: 2 },
         { from: 1, to: 3 },
         { from: 2, to: 4 },
-        { from: 2, to: 5 }
+        { from: 2, to: 5 },
+        { from: 1, to: 5 }
       ]
     };
 
@@ -61,6 +57,11 @@ export default class HomePage extends Component {
       },
       edges: {
         color: "#000000"
+      },
+      interaction: {
+        dragNodes: false,
+        dragView: false,
+        zoomView: false
       }
     };
 
@@ -70,6 +71,13 @@ export default class HomePage extends Component {
       }
     };
 
-    return <div>hey</div>;
+    return (
+      <Graph
+        graph={graph}
+        options={options}
+        events={events}
+        style={{ height: "600px" }}
+      />
+    );
   }
 }
