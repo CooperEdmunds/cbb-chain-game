@@ -39,8 +39,8 @@ export default class HomePage extends Component {
         {
           id: 1,
           label: "Duke",
-          image:
-            "https://s3-us-west-2.amazonaws.com/static.fantasydata.com/logos/ncaa/26.png"
+          shape: "image",
+          image: DIR + "26.png"
         },
         { id: 2, label: "UNC" },
         { id: 3, label: "Gonzaga" },
@@ -61,7 +61,8 @@ export default class HomePage extends Component {
         hierarchical: true
       },
       edges: {
-        color: "#000000"
+        color: "#000000",
+        arrows: "to, from"
       },
       interaction: {
         dragNodes: false,
