@@ -9,14 +9,15 @@ export default class HomePage extends Component {
   }
 
   componentDidMount() {
-    // API.getTeams(
-    //   teams => {
-    //     console.log(teams);
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // );
+    API.getWins(
+      "Duke",
+      teams => {
+        console.log(teams);
+      },
+      error => {
+        console.log(error);
+      }
+    );
     //
     // API.getChains(
     //   "2019",
