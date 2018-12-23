@@ -41,34 +41,40 @@ export default class HomePage extends Component {
           id: 1,
           label: "Duke",
           shape: "image",
-          image: DIR + "26.png"
+          image: "cbb-chain-game/src/pages/26.png"
         },
         { id: 2, label: "UNC" },
         { id: 3, label: "Gonzaga" },
         { id: 4, label: "GADU University" },
-        { id: 5, label: "Clark Bray" }
+        { id: 5, label: "Clark Bray" },
+        { id: 6, label: "Syracuse" },
+        { id: 7, label: "Yeet" }
       ],
       edges: [
         { from: 1, to: 2 },
         { from: 1, to: 3 },
         { from: 2, to: 4 },
         { from: 2, to: 5 },
-        { from: 1, to: 5 }
+        { from: 1, to: 5 },
+        { from: 6, to: 7 },
+        { from: 7, to: 4 },
+        { from: 7, to: 5 }
       ]
     };
 
     var options = {
       layout: {
-        hierarchical: true
+        hierarchical: false
       },
       edges: {
         color: "#000000",
-        arrows: "to, from"
+        arrows: "to",
+        smooth: {
+          forceDirection: "none"
+        }
       },
-      interaction: {
-        dragNodes: false,
-        dragView: false,
-        zoomView: false
+      physics: {
+        minVelocity: 0.75
       }
     };
 
