@@ -19,7 +19,7 @@ class App extends Component {
         <div>
           <Navbar
             className="justify-content-center my-auto"
-            style={{ backgroundColor: "#0736A4" }}
+            style={{ backgroundColor: "#ffffff" }}
             expand="md"
             id="header"
           >
@@ -27,7 +27,7 @@ class App extends Component {
               <NavItem>
                 <LinkContainer to="/">
                   <Button color="link">
-                    <span style={{ color: "#FFFFFF" }}>
+                    <span style={{ color: "#4F4F5B" }}>
                       <strong>Home</strong>
                     </span>
                   </Button>
@@ -37,7 +37,7 @@ class App extends Component {
               <NavItem>
                 <LinkContainer to="/about">
                   <Button color="link">
-                    <span style={{ color: "#FFFFFF" }}>
+                    <span style={{ color: "#4F4F5B" }}>
                       <strong>About</strong>
                     </span>
                   </Button>

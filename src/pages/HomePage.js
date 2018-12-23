@@ -40,15 +40,16 @@ export default class HomePage extends Component {
         {
           id: 1,
           label: "Duke",
+          title: "<b> Blue Devils </b>",
           shape: "image",
-          image: "cbb-chain-game/src/pages/26.png"
+          image: "../Icons/26.png"
         },
-        { id: 2, label: "UNC" },
-        { id: 3, label: "Gonzaga" },
-        { id: 4, label: "GADU University" },
-        { id: 5, label: "Clark Bray" },
-        { id: 6, label: "Syracuse" },
-        { id: 7, label: "Yeet" }
+        { id: 2, label: "UNC", title: "Tar Heels" },
+        { id: 3, label: "Gonzaga", title: "Bulldogs" },
+        { id: 4, label: "GADU University", title: "freshmen" },
+        { id: 5, label: "Clark Bray", title: "gerbils" },
+        { id: 6, label: "Syracuse", title: "Orange" },
+        { id: 7, label: "Yeet", title: "Village" }
       ],
       edges: [
         { from: 1, to: 2 },
@@ -73,8 +74,15 @@ export default class HomePage extends Component {
           forceDirection: "none"
         }
       },
+      nodes: {
+        color: "#ffffff"
+      },
       physics: {
-        minVelocity: 0.75
+        minVelocity: 0.6
+      },
+      interaction: {
+        hover: true,
+        tooltipDelay: 300
       }
     };
 
@@ -89,7 +97,12 @@ export default class HomePage extends Component {
         graph={graph}
         options={options}
         events={events}
-        style={{ height: "600px" }}
+        style={{
+          height: "600px",
+          width: "600px",
+          display: "block",
+          margin: "auto"
+        }}
       />
     );
   }
