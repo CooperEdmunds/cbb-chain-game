@@ -93,28 +93,26 @@ export default class HomePage extends Component {
 
     return (
       <Container>
-        <Row className="my-5 mx-auto justify-content-center">
-          <Col className="col-5">
+        <Row className="my-3 mx-auto justify-content-center">
+          <Col className="mb-5 col-10 col-md-5">
             <SmartField
               isMulti={false}
               labelTitle={"First team"}
-              placeholder={"Duke"}
+              placeholder={""}
               choices={this.state.teams}
               onChangeHandler={this.teamAHandler}
             />
           </Col>
-          <Col className="col-5">
+          <Col className="mb-5 col-10 col-md-5">
             <SmartField
               isMulti={false}
               labelTitle={"Second team"}
-              placeholder={"UNC"}
+              placeholder={""}
               choices={this.state.teams}
               onChangeHandler={this.teamBHandler}
             />
           </Col>
-        </Row>
-        <Row className="my-4 justify-content-center">
-          <Col className="col-8">
+          <Col className="col-12 col-md-8">
             <SmartField
               isMulti={true}
               labelTitle={"Teams to exclude:"}
@@ -125,12 +123,8 @@ export default class HomePage extends Component {
           </Col>
         </Row>
         <Row className="my-4 justify-content-center">
-          <Col className="col-2">
-            <Button
-              className="btn-block"
-              color="secondary"
-              onClick={this.submit}
-            >
+          <Col className="text-center">
+            <Button className="" color="secondary" onClick={this.submit}>
               Find Chains!
             </Button>
           </Col>
