@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../api";
 import Graph from "react-graph-vis";
 import { Container, Row, Col, Button } from "reactstrap";
+import SmartField from "./SmartField";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -11,7 +12,16 @@ export default class HomePage extends Component {
       teamB: "",
       exclude: [],
       aToB: [],
-      bToA: []
+      bToA: [],
+      teams: [
+        "Clemson",
+        "Texas",
+        "Duke",
+        "Wake Forest",
+        "UNC",
+        "Virginia",
+        "Miami (FL)"
+      ]
     };
 
     this.handleTeamAChange = this.handleTeamAChange.bind(this);
@@ -48,6 +58,29 @@ export default class HomePage extends Component {
     );
   };
 
+  teamAHandler = team => {
+    if (team != null) {
+      this.setState({ teamA: team.value });
+    } else {
+      this.setState({ teamA: null });
+    }
+  };
+
+  teamBHandler = team => {
+    if (team != null) {
+      this.setState({ teamB: team.value });
+    } else {
+      this.setState({ teamB: null });
+    }
+  };
+
+  excludedHandler = teams => {
+    let teamNames = teams.map(function(teamObj) {
+      return teamObj.value;
+    });
+    this.setState({ exclude: teamNames });
+  };
+
   render() {
     let i = 0;
     const aToBChainElements = this.state.aToB.map(chain => {
@@ -60,41 +93,34 @@ export default class HomePage extends Component {
 
     return (
       <Container>
-        <Row className="my-4 mx-auto justify-content-center">
-          <Col className="col-4">
-            <input
-              className="form-control"
-              type="text"
-              name="teamA"
-              id="teamA"
-              placeholder="Duke"
-              value={this.state.teamA}
-              onChange={this.handleTeamAChange}
+        <Row className="my-5 mx-auto justify-content-center">
+          <Col className="col-5">
+            <SmartField
+              isMulti={false}
+              labelTitle={"First team"}
+              placeholder={"Duke"}
+              choices={this.state.teams}
+              onChangeHandler={this.teamAHandler}
             />
           </Col>
-          <Col className="col-4">
-            <input
-              className="form-control"
-              type="text"
-              name="teamB"
-              id="teamB"
-              placeholder="UNC"
-              value={this.state.teamB}
-              onChange={this.handleTeamBChange}
+          <Col className="col-5">
+            <SmartField
+              isMulti={false}
+              labelTitle={"Second team"}
+              placeholder={"UNC"}
+              choices={this.state.teams}
+              onChangeHandler={this.teamBHandler}
             />
           </Col>
         </Row>
         <Row className="my-4 justify-content-center">
-          <Col className="col-6">
-            Exclude these teams (comma+space separated, please):
-            <input
-              className="form-control"
-              type="text"
-              name="exclude"
-              id="exclude"
-              placeholder="Texas, Virginia"
-              value={this.state.exclude.join(", ")}
-              onChange={this.handleExcludeChange}
+          <Col className="col-8">
+            <SmartField
+              isMulti={true}
+              labelTitle={"Teams to exclude:"}
+              placeholder={""}
+              choices={this.state.teams}
+              onChangeHandler={this.excludedHandler}
             />
           </Col>
         </Row>
