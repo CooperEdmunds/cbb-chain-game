@@ -1,8 +1,9 @@
-landing-page-graphic {
+.landing-page-graphic {
   width: 10%;
-  length: "auto";
+  padding-top: 20%;
+  padding-bottom: 20%;
 }
 
-body {
-  font-family: sans-serif;
+.body-text {
+  font-family: "Ubuntu", sans-serif;
 }
