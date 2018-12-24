@@ -91,6 +91,13 @@ export default class HomePage extends Component {
       return <li key={i++}>{chain}</li>;
     });
 
+    let teamA = this.state.teamA;
+    let teamB = this.state.teamB;
+
+    let excludeOptions = this.state.teams.filter(function(team) {
+      return team !== teamA && team !== teamB;
+    });
+
     return (
       <Container>
         <Row className="my-3 mx-auto justify-content-center">
@@ -117,7 +124,7 @@ export default class HomePage extends Component {
               isMulti={true}
               labelTitle={"Teams to exclude:"}
               placeholder={""}
-              choices={this.state.teams}
+              choices={excludeOptions}
               onChangeHandler={this.excludedHandler}
             />
           </Col>
