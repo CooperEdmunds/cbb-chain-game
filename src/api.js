@@ -34,3 +34,29 @@ exports.getWins = function(team, successCallback, errorCallback) {
       errorCallback(error);
     });
 };
+
+exports.getChains = function(
+  teamA,
+  teamB,
+  excludedTeams,
+  successCallback,
+  errorCallback
+) {
+  // let filtered = excludedTeams.filter(function(element) {
+  //   return element !== "";
+  // });
+  api
+    .get("chains", {
+      params: {
+        teamA: teamA,
+        teamB: teamB,
+        excluded_teams: JSON.stringify(excludedTeams)
+      }
+    })
+    .then(chains => {
+      successCallback(chains.data);
+    })
+    .catch(error => {
+      errorCallback(error);
+    });
+};

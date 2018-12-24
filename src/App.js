@@ -7,6 +7,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import ChainsPage from "./pages/ChainsPage";
 
 class App extends Component {
   constructor() {
@@ -46,7 +47,7 @@ class App extends Component {
             </Nav>
           </Navbar>
           <div>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/" component={ChainsPage} />
             <Route exact path="/about" component={AboutPage} />
           </div>
         </div>
