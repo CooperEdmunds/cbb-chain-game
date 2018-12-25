@@ -1,9 +1,85 @@
 .landing-page-graphic {
-  width: 10%;
-  padding-top: 20%;
-  padding-bottom: 20%;
+  width: 90%;
+  float: right;
 }
 
-.body-text {
-  font-family: "Ubuntu", sans-serif;
+.header-text {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Ubuntu", "sans-serif";
+}
+
+.header-text-main {
+  font-size: 15px;
+  font-family: "Ubuntu", "sans-serif";
+}
+
+.main-text {
+  font-family: "Ubuntu", "sans-serif";
+  font-size: 1rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .main-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .main-text {
+    font-size: 1.4rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .main-text {
+    font-size: 1.6rem;
+  }
+}
+
+.arrow {
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
+.arrow:hover {
+  transform: translateY(-5px);
+}
+
+.icon:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  height: 70px;
+  width: 70px;
+}
+
+.long-divider {
+  border-width: 1px;
+  border-style: solid none none none;
+  border-color: #9292a066;
+}
+
+.short-divider {
+  width: 55%;
+  border-width: 1px;
+  border-style: solid none none none;
+  border-color: #9292a066;
+}
+
+.triple-chain {
+  width: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
