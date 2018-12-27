@@ -5,14 +5,6 @@ const api = axios.create({
   baseURL: `https://cors-anywhere.herokuapp.com/https://cbb-chain-game-api.herokuapp.com/`
 });
 
-exports.getChains = function(
-  season,
-  teamOne,
-  teamTwo,
-  successCallback,
-  errorCallback
-) {};
-
 exports.getTeams = function(successCallback, errorCallback) {
   api
     .get("teams")
@@ -42,9 +34,6 @@ exports.getChains = function(
   successCallback,
   errorCallback
 ) {
-  // let filtered = excludedTeams.filter(function(element) {
-  //   return element !== "";
-  // });
   api
     .get("chains", {
       params: {

@@ -3,25 +3,20 @@ import API from "../api";
 import Graph from "react-graph-vis";
 import { Container, Row, Col, Button } from "reactstrap";
 import SmartField from "./SmartField";
+import teams from "../team-list";
 
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
+    let teams_list = teams;
+    teams_list.sort();
     this.state = {
       teamA: "",
       teamB: "",
       exclude: [],
       aToB: [],
       bToA: [],
-      teams: [
-        "Clemson",
-        "Texas",
-        "Duke",
-        "Wake Forest",
-        "UNC",
-        "Virginia",
-        "Miami (FL)"
-      ]
+      teams: teams_list
     };
 
     this.handleTeamAChange = this.handleTeamAChange.bind(this);
