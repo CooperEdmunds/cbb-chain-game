@@ -39,7 +39,7 @@ exports.getChains = function(
       params: {
         teamA: teamA,
         teamB: teamB,
-        excluded_teams: JSON.stringify(excludedTeams)
+        excludedTeams: JSON.stringify(excludedTeams)
       }
     })
     .then(chains => {
