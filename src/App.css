@@ -77,7 +77,7 @@ body {
 }
 
 table {
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   height: 100%;
   font-family: "Ubuntu", "sans-serif";
@@ -85,7 +85,9 @@ table {
 
 th,
 td {
-  padding: 5px;
+  border-bottom: solid 0.25px #9292a0;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .Games-entry-win {
@@ -98,4 +100,36 @@ td {
 
 .Games-entry-tie {
   background-color: #9292a066;
+}
+
+.content-left {
+  border-right: 0.25px solid #9292a0;
+}
+
+.triple-chain {
+  width: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.chains-table-header {
+  font-size: 2.3rem;
+}
+
+tr:hover {
+  background-color: #9292a066;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.background {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }

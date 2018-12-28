@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Particles from "react-particles-js";
 
 export default class AboutPage extends Component {
   constructor(props) {
@@ -7,6 +8,6 @@ export default class AboutPage extends Component {
   }
 
   render() {
-    return <div>hey</div>;
+    return <Particles />;
   }
 }
