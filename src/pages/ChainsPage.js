@@ -2,19 +2,19 @@ import React, { Component } from "react";
 import API from "../api";
 import Graph from "react-graph-vis";
 import { Container, Row, Col } from "reactstrap";
-import SmartField from "./SmartField";
+import SmartField from "./controls/SmartField";
 import teams from "../team-list";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
-import ChainsGraph from "./ChainsGraph";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import DataDisplay from "./controls/DataDisplay";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -28,7 +28,6 @@ export default class HomePage extends Component {
       aToB: {},
       bToA: {},
       teams: teams_list,
-      tabState: 0,
       loadingState: 0
       // 0: no query yet; 1: loading query; 2: ready to display; 3: error
     };
@@ -43,10 +42,6 @@ export default class HomePage extends Component {
 
   handleTeamBChange = evt => {
     this.setState({ teamB: evt.target.value });
-  };
-
-  handleTabChange = (event, value) => {
-    this.setState({ tabState: value });
   };
 
   submit = () => {
@@ -92,18 +87,6 @@ export default class HomePage extends Component {
     this.setState({ exclude: teamNames });
   };
 
-  stringifyChain = chain => {
-    let chainString = "";
-    let totalDifferetial = 0;
-    for (var i = 0; i < chain.length; i++) {
-      let link = chain[i];
-      let diff = link.w_s - link.l_s;
-      totalDifferetial += diff;
-      chainString += " (" + diff + ")> " + link.l;
-    }
-    return chainString + ": " + totalDifferetial;
-  };
-
   render() {
     let teamA = this.state.teamA;
     let teamB = this.state.teamB;
@@ -112,31 +95,7 @@ export default class HomePage extends Component {
       return team !== teamA && team !== teamB;
     });
 
-    const { tabState, loadingState } = this.state;
-
-    let aToBRows = [];
-    let bToARows = [];
-
-    if (loadingState === 2) {
-      var i = 0;
-      aToBRows = this.state.aToB.chains.map(chain => {
-        var chainString = teamA + this.stringifyChain(chain);
-        return (
-          <tr>
-            <td>{chainString}</td>
-          </tr>
-        );
-      });
-
-      bToARows = this.state.bToA.chains.map(chain => {
-        var chainString = teamB + this.stringifyChain(chain);
-        return (
-          <tr>
-            <td>{chainString}</td>
-          </tr>
-        );
-      });
-    }
+    const { loadingState } = this.state;
 
     return (
       <Container>
@@ -183,45 +142,12 @@ export default class HomePage extends Component {
           {loadingState === 0 && <div>Select two teams to see their links</div>}
           {loadingState === 1 && <div>Loading...</div>}
           {loadingState === 2 && (
-            <div>
-              <Row>
-                <Col>
-                  <Tabs
-                    value={this.state.tabState}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    onChange={this.handleTabChange}
-                    centered
-                  >
-                    <Tab label="List" />
-                    <Tab label="Map" />
-                  </Tabs>
-                </Col>
-              </Row>
-              {tabState === 0 && (
-                <Row>
-                  <Col className="col-6">
-                    <h2>{teamA + " > " + teamB}</h2>
-                    <table class="table table-hover">
-                      <tbody>{aToBRows}</tbody>
-                    </table>
-                  </Col>
-                  <Col className="col-6">
-                    <h2>{teamB + " > " + teamA}</h2>
-                    <table class="table table-hover">
-                      <tbody>{bToARows}</tbody>
-                    </table>
-                  </Col>
-                </Row>
-              )}
-              {tabState === 1 && (
-                <Row>
-                  <Col className="col">
-                    <ChainsGraph data={this.state.aToB} />
-                  </Col>
-                </Row>
-              )}
-            </div>
+            <DataDisplay
+              teamA={this.state.teamA}
+              teamB={this.state.teamB}
+              aToB={this.state.aToB}
+              bToA={this.state.bToA}
+            />
           )}
           {loadingState === 3 && <div>Error</div>}
         </Paper>
