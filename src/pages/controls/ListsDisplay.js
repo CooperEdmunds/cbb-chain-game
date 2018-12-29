@@ -11,12 +11,19 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import InboxIcon from "@material-ui/icons/Inbox";
+import { ReactComponent as DoubleChain } from "../../Icons/double-chain.svg";
 
 export default class GraphDisplay extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      tabState: 0
+    };
   }
+
+  handleTabChange = (event, value) => {
+    this.setState({ tabState: value });
+  };
 
   stringifyChain = chain => {
     let chainString = "";
@@ -37,15 +44,21 @@ export default class GraphDisplay extends Component {
     let dividerDiv = null;
 
     if (showDivider) {
-      dividerDiv = <Divider />;
+      dividerDiv = <Divider variant="middle" />;
     }
 
     return (
-      <div>
-        <ListItem key={key}>
-          <InboxIcon />
+      <div key={key}>
+        <ListItem>
+          <img
+            src={require("../../Icons/double-chain.svg")}
+            height="16"
+            width="16"
+          />
           <ListItemText primary={chainString} />
-          <ListItemSecondaryAction>{diff + "   "}</ListItemSecondaryAction>
+          <ListItemSecondaryAction>
+            <ListItemText primary={diff} />
+          </ListItemSecondaryAction>
         </ListItem>
         {dividerDiv}
       </div>
@@ -53,36 +66,74 @@ export default class GraphDisplay extends Component {
   };
 
   render() {
+    const { tabState } = this.state;
+
     let teamA = this.props.teamA;
     let teamB = this.props.teamB;
 
     let aToBChains = this.props.aToB.chains;
     let bToAChains = this.props.bToA.chains;
 
-    let aToBRows = [];
-    let bToARows = [];
+    let aToBItems = [];
+    let btoAItems = [];
 
     let i = 0;
-    aToBRows = this.props.aToB.chains.map(chain => {
+    aToBItems = this.props.aToB.chains.map(chain => {
       return this.makeRow(teamA, chain, i++, i < aToBChains.length);
     });
 
     let j = 0;
-    bToARows = this.props.bToA.chains.map(chain => {
+    btoAItems = this.props.bToA.chains.map(chain => {
       return this.makeRow(teamB, chain, i + j++, j < bToAChains.length);
     });
 
     return (
       <div>
-        <Row />
-        <Row>
-          <Col className="col-6 right-border">
-            <List>{aToBRows}</List>
-          </Col>
-          <Col className="col-6">
-            <List>{bToARows}</List>
-          </Col>
-        </Row>
+        <br />
+        <div className="d-none d-md-block">
+          <Row>
+            <Col className="col-6">
+              <center>
+                <strong>{teamA + " > " + teamB}</strong>
+              </center>
+            </Col>
+            <Col className="col-6">
+              <center>
+                <strong>{teamB + " > " + teamA}</strong>
+              </center>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="col-6 right-border">
+              <List>{aToBItems}</List>
+            </Col>
+            <Col className="col-6">
+              <List>{btoAItems}</List>
+            </Col>
+          </Row>
+        </div>
+        <div className="d-sm-block d-md-none">
+          <Row>
+            <Col>
+              <Tabs
+                value={this.state.tabState}
+                indicatorColor="primary"
+                textColor="primary"
+                onChange={this.handleTabChange}
+                centered
+              >
+                <Tab label={this.props.teamA + " > " + this.props.teamB} />
+                <Tab label={this.props.teamB + " > " + this.props.teamA} />
+              </Tabs>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              {tabState === 0 && <List>{aToBItems}</List>}
+              {tabState === 1 && <List>{btoAItems}</List>}
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
