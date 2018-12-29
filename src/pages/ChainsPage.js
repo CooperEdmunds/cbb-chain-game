@@ -98,9 +98,9 @@ export default class HomePage extends Component {
     const { loadingState } = this.state;
 
     return (
-      <Container>
+      <div>
         <br />
-        <Paper className="my-3 py-2" elevation={3}>
+        <Paper className="col-10 mx-auto my-3 py-2" elevation={3}>
           <Row className="my-3 mx-auto justify-content-center">
             <Col className="mb-5 col-10 col-md-5">
               <SmartField
@@ -138,20 +138,26 @@ export default class HomePage extends Component {
             </Col>
           </Row>
         </Paper>
-        <Paper className="my-5 pb-2" elevation={3}>
-          {loadingState === 0 && <div>Select two teams to see their links</div>}
-          {loadingState === 1 && <div>Loading...</div>}
-          {loadingState === 2 && (
-            <DataDisplay
-              teamA={this.state.teamA}
-              teamB={this.state.teamB}
-              aToB={this.state.aToB}
-              bToA={this.state.bToA}
-            />
-          )}
-          {loadingState === 3 && <div>Error</div>}
-        </Paper>
-      </Container>
+        <Row className="col-12 mx-auto my-3 py-2">
+          <Col>
+            <div className="my-3 pb-2">
+              {loadingState === 0 && (
+                <div>Select two teams to see their links</div>
+              )}
+              {loadingState === 1 && <div>Loading...</div>}
+              {loadingState === 2 && (
+                <DataDisplay
+                  teamA={this.state.teamA}
+                  teamB={this.state.teamB}
+                  aToB={this.state.aToB}
+                  bToA={this.state.bToA}
+                />
+              )}
+              {loadingState === 3 && <div>Error</div>}
+            </div>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
