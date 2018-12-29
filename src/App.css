@@ -18,6 +18,10 @@
   color: white;
 }
 
+.right-border {
+  border-right: 0.5px dashed #222222;
+}
+
 button:focus {
   outline: 0;
 }

@@ -4,12 +4,13 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import InboxIcon from "@material-ui/icons/Inbox";
 
 export default class GraphDisplay extends Component {
   constructor(props) {
@@ -26,74 +27,63 @@ export default class GraphDisplay extends Component {
       totalDifferetial += diff;
       chainString += " (" + diff + ")> " + link.l;
     }
-    return chainString + ": " + totalDifferetial;
+    return [chainString, totalDifferetial];
+  };
+
+  makeRow = (teamName, chain, key, showDivider) => {
+    let stringifyChainData = this.stringifyChain(chain);
+    let chainString = teamName + stringifyChainData[0];
+    let diff = stringifyChainData[1];
+    let dividerDiv = null;
+
+    if (showDivider) {
+      dividerDiv = <Divider />;
+    }
+
+    return (
+      <div>
+        <ListItem key={key}>
+          <InboxIcon />
+          <ListItemText primary={chainString} />
+          <ListItemSecondaryAction>{diff + "   "}</ListItemSecondaryAction>
+        </ListItem>
+        {dividerDiv}
+      </div>
+    );
   };
 
   render() {
     let teamA = this.props.teamA;
     let teamB = this.props.teamB;
 
+    let aToBChains = this.props.aToB.chains;
+    let bToAChains = this.props.bToA.chains;
+
     let aToBRows = [];
     let bToARows = [];
 
-    var i = 0;
+    let i = 0;
     aToBRows = this.props.aToB.chains.map(chain => {
-      var chainString = teamA + this.stringifyChain(chain);
-      return (
-        <tr key={i++}>
-          <td>*icon*</td>
-          <td> {chainString} </td>
-        </tr>
-      );
+      return this.makeRow(teamA, chain, i++, i < aToBChains.length);
     });
 
+    let j = 0;
     bToARows = this.props.bToA.chains.map(chain => {
-      var chainString = teamB + this.stringifyChain(chain);
-      return (
-        <tr key={i++}>
-          <td>*icon*</td>
-          <td> {chainString} </td>
-        </tr>
-      );
+      return this.makeRow(teamB, chain, i + j++, j < bToAChains.length);
     });
 
     return (
-      <Row>
-        <Col className="col-6">
-          <table>
-            <tr className="chains-table-header">
-              <th colspan="2">
-                <center>
-                  <img
-                    src="../Icons/trophy.svg"
-                    alt="Winning team"
-                    style={{ height: "2.3rem" }}
-                  />
-                  {teamA + " > " + teamB}
-                </center>
-              </th>
-            </tr>
-            {aToBRows}
-          </table>
-        </Col>
-        <Col className="col-6">
-          <table>
-            <tr className="chains-table-header">
-              <th colspan="2">
-                <center>
-                  <img
-                    src="../Icons/trophy.svg"
-                    alt="Winning team"
-                    style={{ height: "2.3rem" }}
-                  />
-                  {teamB + " > " + teamA}
-                </center>
-              </th>
-            </tr>
-            {bToARows}
-          </table>
-        </Col>
-      </Row>
+      <div>
+        <Row />
+        <Row>
+          <Col className="col-6 right-border">
+            <List>{aToBRows}</List>
+          </Col>
+          <Col className="col-6">
+            <List>{bToARows}</List>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
