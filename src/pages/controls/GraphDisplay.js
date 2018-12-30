@@ -59,6 +59,7 @@ export default class GraphDisplay extends Component {
 
     var events = {
       select: function(event) {
+        // eslint-disable-next-line
         var { nodes, edges } = event;
       }
     };
