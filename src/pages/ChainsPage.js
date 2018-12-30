@@ -1,19 +1,10 @@
 import React, { Component } from "react";
 import API from "../api";
-import Graph from "react-graph-vis";
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import SmartField from "./controls/SmartField";
 import teams from "../team-list";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
 import DataDisplay from "./controls/DataDisplay";
 
 export default class HomePage extends Component {

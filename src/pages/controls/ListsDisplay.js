@@ -1,17 +1,12 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
-import InboxIcon from "@material-ui/icons/Inbox";
-import { ReactComponent as DoubleChain } from "../../Icons/double-chain.svg";
 
 export default class GraphDisplay extends Component {
   constructor(props) {
@@ -52,6 +47,7 @@ export default class GraphDisplay extends Component {
         <ListItem>
           <img
             src={require("../../Icons/double-chain.svg")}
+            alt={""}
             height="16"
             width="16"
           />

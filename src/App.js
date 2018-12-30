@@ -1,7 +1,7 @@
 import "./App.css";
 
 import React, { Component } from "react";
-import { Route, HashRouter, NavLink } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 import { Button, Nav, Navbar, NavItem } from "reactstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
@@ -9,10 +9,6 @@ import ChainsPage from "./pages/ChainsPage";
 import AboutPage from "./pages/AboutPage";
 
 class App extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <HashRouter>
