@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
@@ -10,9 +11,12 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
+<<<<<<< HEAD
 import InboxIcon from "@material-ui/icons/Inbox";
 import { ReactComponent as DoubleChain } from "../../Icons/double-chain.svg";
 import SvgIcon from "@material-ui/core/SvgIcon";
+=======
+>>>>>>> c8b620b58f8a685c375edb4d39b2b4b73288b745
 
 export default class GraphDisplay extends Component {
   constructor(props) {
@@ -74,9 +78,18 @@ export default class GraphDisplay extends Component {
     return (
       <div key={key}>
         <ListItem>
+<<<<<<< HEAD
           <ListItemIcon>
             <DoubleChainIcon />
           </ListItemIcon>
+=======
+          <img
+            src={require("../../Icons/double-chain.svg")}
+            alt={""}
+            height="16"
+            width="16"
+          />
+>>>>>>> c8b620b58f8a685c375edb4d39b2b4b73288b745
           <ListItemText primary={chainString} />
           <ListItemSecondaryAction>
             <ListItemText primary={diff} />

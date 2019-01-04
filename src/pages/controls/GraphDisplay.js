@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Graph from "react-graph-vis";
 import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
@@ -31,6 +32,7 @@ export default class GraphDisplay extends Component {
     };
 
     if (this.state.tabState == 0) {
+    if (this.state.tabState === 0) {
       graph = {
         nodes: this.props.aToB.nodes,
         edges: this.props.aToB.edges
@@ -67,6 +69,7 @@ export default class GraphDisplay extends Component {
 
     var events = {
       select: function(event) {
+        // eslint-disable-next-line
         var { nodes, edges } = event;
       }
     };

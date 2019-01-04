@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../api";
 import Graph from "react-graph-vis";
 import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import SmartField from "./controls/SmartField";
 import teams from "../team-list";
 import Tabs from "@material-ui/core/Tabs";
