@@ -152,7 +152,18 @@ export default class HomePage extends Component {
           <Col>
             <div className="my-3 pb-2">
               {loadingState === 0 && (
-                <div>Select two teams to see their links</div>
+                <div className="center-block">
+                  <img
+                    src={require("../Icons/select-teams-chain.svg")}
+                    className="broken-chains"
+                  />
+                  <br />
+                  <div className="error-text">
+                    <center>
+                      Enter two teams to view chains between them.
+                    </center>
+                  </div>
+                </div>
               )}
               {loadingState === 1 && <div>Loading...</div>}
               {loadingState === 2 && (
@@ -163,7 +174,24 @@ export default class HomePage extends Component {
                   bToA={this.state.bToA}
                 />
               )}
-              {loadingState === 3 && <div>Error</div>}
+              {loadingState === 3 && (
+                <div className="center-block">
+                  <img
+                    src={require("../Icons/broken-chains.svg")}
+                    className="broken-chains"
+                  />
+                  <br />
+                  <div className="error-text-header">
+                    <center>Uh-oh...</center>
+                  </div>
+                  <div className="error-text">
+                    <center>
+                      Looks like we’ve encountered some broken chains.
+                    </center>
+                    <center>Please try again.</center>
+                  </div>
+                </div>
+              )}
             </div>
           </Col>
         </Row>

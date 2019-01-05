@@ -137,3 +137,21 @@ body {
   left: 0;
   z-index: 0;
 }
+
+.broken-chains {
+  width: 130px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-text-header {
+  font-family: "Ubuntu", "sans-serif";
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.error-text {
+  font-family: "Ubuntu", "sans-serif";
+  font-size: 1rem;
+}
