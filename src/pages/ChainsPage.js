@@ -24,6 +24,8 @@ export default class HomePage extends Component {
     this.state = {
       teamA: "",
       teamB: "",
+      tempTeamA: "",
+      tempTeamB: "",
       exclude: [],
       aToB: {},
       bToA: {},
@@ -45,10 +47,18 @@ export default class HomePage extends Component {
   };
 
   submit = () => {
-    this.setState({ loadingState: 1 });
+    let teamA = this.state.tempTeamA;
+    let teamB = this.state.tempTeamB;
+
+    this.setState({
+      loadingState: 1,
+      teamA: teamA,
+      teamB: teamB
+    });
+
     API.getChains(
-      this.state.teamA,
-      this.state.teamB,
+      teamA,
+      teamB,
       this.state.exclude,
       data => {
         this.setState({
@@ -66,17 +76,17 @@ export default class HomePage extends Component {
 
   teamAHandler = team => {
     if (team != null) {
-      this.setState({ teamA: team.value });
+      this.setState({ tempTeamA: team.value });
     } else {
-      this.setState({ teamA: null });
+      this.setState({ tempTeamA: null });
     }
   };
 
   teamBHandler = team => {
     if (team != null) {
-      this.setState({ teamB: team.value });
+      this.setState({ tempTeamB: team.value });
     } else {
-      this.setState({ teamB: null });
+      this.setState({ tempTeamB: null });
     }
   };
 
