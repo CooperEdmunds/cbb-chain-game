@@ -30,79 +30,81 @@ export default class GraphDisplay extends Component {
       edges: []
     };
 
-    if (this.state.tabState == 0) {
-      if (this.state.tabState === 0) {
-        graph = {
-          nodes: this.props.aToB.nodes,
-          edges: this.props.aToB.edges
-        };
-      } else {
-        graph = {
-          nodes: this.props.bToA.nodes,
-          edges: this.props.bToA.edges
-        };
-      }
-
-      var options = {
-        layout: {
-          hierarchical: false
-        },
-        edges: {
-          color: "#000000",
-          arrows: "to",
-          smooth: {
-            forceDirection: "none"
-          }
-        },
-        nodes: {
-          color: "#ffffff"
-        },
-        physics: {
-          minVelocity: 0.6
-        },
-        interaction: {
-          hover: true,
-          tooltipDelay: 300
-        }
+    if (this.state.tabState === 0) {
+      graph = {
+        nodes: this.props.aToB.nodes,
+        edges: this.props.aToB.edges
       };
-
-      var events = {
-        select: function(event) {
-          // eslint-disable-next-line
-          var { nodes, edges } = event;
-        }
+    } else {
+      graph = {
+        nodes: this.props.bToA.nodes,
+        edges: this.props.bToA.edges
       };
-
-      return (
-        <div>
-          <Row>
-            <Col>
-              <Tabs
-                value={this.state.tabState}
-                indicatorColor="primary"
-                textColor="primary"
-                onChange={this.handleTabChange}
-                centered
-              >
-                <Tab label={this.props.teamA + " > " + this.props.teamB} />
-                <Tab label={this.props.teamB + " > " + this.props.teamA} />
-              </Tabs>
-            </Col>
-          </Row>
-
-          <Graph
-            graph={graph}
-            options={options}
-            events={events}
-            style={{
-              height: "1200px",
-              width: "100%",
-              display: "block",
-              margin: "auto"
-            }}
-          />
-        </div>
-      );
     }
+
+    var options = {
+      layout: {
+        hierarchical: false
+      },
+      edges: {
+        color: "#000000",
+        arrows: "to",
+        smooth: {
+          forceDirection: "none"
+        }
+      },
+      nodes: {
+        color: "#ffffff"
+      },
+      physics: {
+        minVelocity: 0.6
+      },
+      interaction: {
+        hover: true,
+        tooltipDelay: 300,
+        multiselect: true,
+        dragNodes: false,
+        dragView: false,
+        zoomView: false
+      }
+    };
+
+    var events = {
+      select: function(event) {
+        // eslint-disable-next-line
+        var { nodes, edges } = event;
+      }
+    };
+
+    return (
+      <div>
+        <Row>
+          <Col>
+            <Tabs
+              value={this.state.tabState}
+              indicatorColor="primary"
+              textColor="primary"
+              onChange={this.handleTabChange}
+              centered
+            >
+              <Tab label={this.props.teamA + " > " + this.props.teamB} />
+              <Tab label={this.props.teamB + " > " + this.props.teamA} />
+            </Tabs>
+          </Col>
+        </Row>
+
+        <Graph
+          graph={graph}
+          options={options}
+          events={events}
+          style={{
+            height: "1200px",
+            width: "100%",
+            display: "block",
+            margin: "auto"
+          }}
+        />
+      </div>
+    );
   }
 }
