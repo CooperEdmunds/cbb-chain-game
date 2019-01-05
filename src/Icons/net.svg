@@ -1,22 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 41.8 47.6" style="enable-background:new 0 0 41.8 47.6;" xml:space="preserve">
+	 viewBox="0 0 167.9 170.1" style="enable-background:new 0 0 167.9 170.1;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#4F4F5B;}
-	.st1{fill:none;stroke:#4F4F5B;stroke-width:0.75;stroke-miterlimit:10;}
 </style>
-<ellipse transform="matrix(0.6602 -0.7511 0.7511 0.6602 -2.8768 37.5191)" class="st0" cx="40" cy="21.9" rx="1.8" ry="1.7"/>
-<ellipse transform="matrix(0.6602 -0.7511 0.7511 0.6602 -23.4562 12.1957)" class="st0" cx="1.8" cy="32" rx="1.8" ry="1.7"/>
-<circle class="st0" cx="37.7" cy="40.5" r="1.9"/>
-<ellipse transform="matrix(0.6602 -0.7511 0.7511 0.6602 -14.5965 22.9177)" class="st0" cx="18" cy="27.6" rx="1.8" ry="1.7"/>
-<ellipse transform="matrix(0.6602 -0.7511 0.7511 0.6602 -6.5046 6.3468)" class="st0" cx="3.8" cy="10.4" rx="1.8" ry="1.7"/>
-<ellipse transform="matrix(0.6602 -0.7511 0.7511 0.6602 -28.4936 28.6968)" class="st0" cx="17.5" cy="45.8" rx="1.8" ry="1.7"/>
-<ellipse transform="matrix(0.6602 -0.7511 0.7511 0.6602 5.6894 16.0823)" class="st0" cx="20.6" cy="1.8" rx="1.8" ry="1.7"/>
-<line class="st1" x1="37.8" y1="40.3" x2="20.6" y2="1.8"/>
-<polyline class="st1" points="17.5,45.8 18,27.6 1.8,32 20.6,1.8 40,21.9 18,27.6 37.8,40.3 "/>
-<polygon class="st1" points="3.8,10.4 17.5,45.8 40,21.9 "/>
-<polygon class="st1" points="20.6,1.8 3.8,10.4 18,27.6 "/>
-<polyline class="st1" points="37.8,40.3 17.5,45.8 1.8,32 "/>
-<polyline class="st1" points="40,21.9 37.8,40.3 1.8,32 3.8,10.4 "/>
+<g>
+	<g>
+		<circle class="st0" cx="157" cy="128.8" r="10.9"/>
+	</g>
+	<g>
+		<path class="st0" d="M67.2,163.5L8.1,87.9L63.5,8.3l93.4,26.3l2.3,95.9L67.2,163.5z M13.5,87.8l55.2,70.6l86-30.8l-2.1-89.6
+			L65.3,13.3L13.5,87.8z"/>
+	</g>
+	<g>
+		<circle class="st0" cx="154.9" cy="36.2" r="10.9"/>
+	</g>
+	<g>
+		<circle class="st0" cx="64.4" cy="10.9" r="10.9"/>
+	</g>
+	<g>
+		<circle class="st0" cx="10.9" cy="87.6" r="10.9"/>
+	</g>
+	<g>
+		<circle class="st0" cx="68.8" cy="159.2" r="10.9"/>
+	</g>
+	<g>
+		<circle class="st0" cx="108" cy="74.1" r="15.5"/>
+	</g>
+	<g>
+		
+			<rect x="38.7" y="114" transform="matrix(0.3962 -0.9182 0.9182 0.3962 -53.9978 150.1782)" class="st0" width="96.9" height="4.3"/>
+	</g>
+	<g>
+		
+			<rect x="10.2" y="77.4" transform="matrix(0.9865 -0.1639 0.1639 0.9865 -12.2565 10.6831)" class="st0" width="96.9" height="4.3"/>
+	</g>
+	<g>
+		
+			<rect x="83.2" y="4.3" transform="matrix(0.8228 -0.5683 0.5683 0.8228 -8.3213 55.8254)" class="st0" width="4.3" height="73.9"/>
+	</g>
+	<g>
+		
+			<rect x="100.6" y="51.7" transform="matrix(0.8065 -0.5912 0.5912 0.8065 -6.6116 87.6369)" class="st0" width="60.1" height="4.3"/>
+	</g>
+	<g>
+		
+			<rect x="129.5" y="62.1" transform="matrix(0.7485 -0.6632 0.6632 0.7485 -33.3453 112.5389)" class="st0" width="4.3" height="76.3"/>
+	</g>
+</g>
 </svg>
