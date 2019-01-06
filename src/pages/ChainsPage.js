@@ -165,7 +165,14 @@ export default class HomePage extends Component {
                   </div>
                 </div>
               )}
-              {loadingState === 1 && <div>Loading...</div>}
+              {loadingState === 1 && (
+                <div className="center-block">
+                  <img
+                    src={require("../Icons/loading.gif")}
+                    className="loading"
+                  />
+                </div>
+              )}
               {loadingState === 2 && (
                 <DataDisplay
                   teamA={this.state.teamA}
